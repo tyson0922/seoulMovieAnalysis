@@ -1,0 +1,32 @@
+📄 genre_model_dt Results
+==============================
+Accuracy: 0.4860
+
+              precision    recall  f1-score   support
+
+      Action       0.34      0.36      0.35       375
+  Adult film       0.71      0.86      0.78       929
+   Adventure       0.00      0.00      0.00        24
+   Animation       0.69      0.64      0.66       244
+      Comedy       0.10      0.14      0.12       132
+       Crime       0.14      0.13      0.14        76
+ Documentary       0.37      0.34      0.35       157
+       Drama       0.37      0.30      0.33       639
+      Family       0.00      0.00      0.00        15
+     Fantasy       0.05      0.06      0.05        32
+  Historical       0.11      0.08      0.09        13
+      Horror       0.27      0.31      0.29       170
+     Musical       0.10      0.08      0.09        13
+     Mystery       0.06      0.04      0.05        45
+       Other       0.16      0.09      0.12        33
+ Performance       0.40      0.48      0.43        75
+     Romance       0.63      0.58      0.60       931
+      Sci-Fi       0.05      0.05      0.05        63
+    Thriller       0.04      0.03      0.03       118
+     Unknown       0.00      0.00      0.00        23
+         War       0.04      0.03      0.03        37
+     Western       0.00      0.00      0.00         2
+
+    accuracy                           0.49      4146
+   macro avg       0.21      0.21      0.21      4146
+weighted avg       0.47      0.49      0.48      4146

@@ -1,0 +1,6 @@
+📊 Feature Importance (rf_reduc_cat)
+========================================
+release_year: 0.1890
+nation_enc: 0.2020
+rating_enc: 0.2351
+seoul_ratio: 0.3739

@@ -1,0 +1,5 @@
+📊 Feature Importance (rf_reduc_cat_no_seoul)
+========================================
+release_year: 0.1869
+nation_enc: 0.3563
+rating_enc: 0.4568

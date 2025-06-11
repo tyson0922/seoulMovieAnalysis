@@ -1,0 +1,5 @@
+📊 Feature Importance (genre_model_rf_no_seoul)
+========================================
+release_year: 0.3435
+nation_enc: 0.4003
+rating_enc: 0.2562

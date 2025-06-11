@@ -1,0 +1,16 @@
+📄 knn_reduc_cat Results
+==============================
+Accuracy: 0.5859
+
+              precision    recall  f1-score   support
+
+      Action       0.40      0.46      0.43       493
+       Adult       0.74      0.77      0.75       929
+   Animation       0.64      0.75      0.69       259
+      Comedy       0.15      0.14      0.14       132
+       Other       0.45      0.39      0.42       763
+     Romance       0.65      0.62      0.63      1570
+
+    accuracy                           0.59      4146
+   macro avg       0.50      0.52      0.51      4146
+weighted avg       0.58      0.59      0.58      4146
