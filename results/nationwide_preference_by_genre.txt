@@ -1,0 +1,7 @@
+genre	audience_total
+Action	358298.96
+Comedy	235419.94
+Animation	213535.48
+Other	181813.66
+Romance	64636.56
+Adult	28.23

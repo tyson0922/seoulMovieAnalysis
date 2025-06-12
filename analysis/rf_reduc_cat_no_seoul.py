@@ -168,3 +168,30 @@ print(f"Nation: {le_nation.inverse_transform([original_movie['nation_enc']])[0]}
 print(f"Rating: {le_rating.inverse_transform([original_movie['rating_enc']])[0]}")
 print(f"\n📌 Predicted Genre: {le_genre.inverse_transform([y_pred[2]])[0]}")
 print(f"✅ Actual Genre: {le_genre.inverse_transform([y_test.iloc[2]])[0]}")
+
+
+# Filter to only used rows in this model (no seoul_ratio, but audience_total still valid)
+used_rows = df.loc[X.index]
+
+# Group and calculate average audience_total
+nation_pref = used_rows.groupby('genre')['audience_total'].mean().sort_values(ascending=False)
+
+# Save to TXT
+nation_pref_path = os.path.join(results_dir, "nationwide_preference_by_genre.txt")
+nation_pref.to_csv(nation_pref_path, sep='\t', float_format="%.2f")
+print(f"\n📁 Nationwide preference saved to: {nation_pref_path}")
+
+# Plot
+plt.figure(figsize=(8, 5))
+nation_pref.plot(kind='barh', color='lightcoral')
+plt.xlabel("Average Nationwide Audience")
+plt.title("Nationwide Audience Preference by Genre")
+plt.gca().invert_yaxis()
+plt.tight_layout()
+
+# Save Plot
+nation_plot_path = os.path.join(results_dir, "nationwide_preference_by_genre.png")
+plt.savefig(nation_plot_path, dpi=300)
+plt.close()
+
+print(f"📊 Nationwide preference plot saved to: {nation_plot_path}")

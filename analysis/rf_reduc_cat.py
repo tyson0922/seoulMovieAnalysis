@@ -172,3 +172,29 @@ print(f"Seoul Ratio: {original_movie['seoul_ratio']:.2f}")
 
 print(f"\n📌 Predicted Genre: {le_genre.inverse_transform([y_pred[2]])[0]}")
 print(f"✅ Actual Genre: {le_genre.inverse_transform([y_test.iloc[2]])[0]}")
+
+# =========================
+# 9. Seoul Preference by Genre
+# =========================
+
+genre_seoul_pref = df.groupby('genre')['seoul_ratio'].mean().sort_values(ascending=False)
+
+# Save to TXT
+seoul_pref_path = os.path.join(results_dir, "seoul_preference_by_genre.txt")
+genre_seoul_pref.to_csv(seoul_pref_path, sep='\t', float_format="%.4f")
+print(f"📁 Seoul preference saved to: {seoul_pref_path}")
+
+# Plot
+plt.figure(figsize=(8, 5))
+genre_seoul_pref.plot(kind='barh', color='skyblue')
+plt.xlabel("Average Seoul Ratio")
+plt.title("Seoul Audience Preference by Genre")
+plt.gca().invert_yaxis()
+plt.tight_layout()
+
+# Save Plot
+seoul_plot_path = os.path.join(results_dir, "seoul_preference_by_genre.png")
+plt.savefig(seoul_plot_path, dpi=300)
+plt.close()
+
+print(f"📊 Seoul preference plot saved to: {seoul_plot_path}")

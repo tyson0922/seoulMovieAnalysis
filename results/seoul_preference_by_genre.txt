@@ -1,0 +1,7 @@
+genre	seoul_ratio
+Comedy	0.4812
+Other	0.4459
+Action	0.3672
+Romance	0.3368
+Animation	0.3162
+Adult	0.0955
