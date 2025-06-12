@@ -1,0 +1,17 @@
+🎬 Movie Prediction Summary
+==============================
+Title        : Attack on Titan The Movie THE LAST ATTACK
+Release Year : 2025
+Nation       : US
+Rating       : 15+
+Seoul Ratio  : 0.29
+
+📊 Genre Predictions:
+- KNN: Horror
+- Decision Tree: Thriller
+- Random Forest: Horror
+- KNN (Reduced Cat): Comedy
+- Decision Tree (Reduced Cat): Action
+- Random Forest (Reduced Cat): Comedy
+- Random Forest (No Seoul): War
+- Random Forest (Reduced Cat, No Seoul): Comedy

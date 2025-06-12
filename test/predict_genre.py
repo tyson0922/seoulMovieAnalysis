@@ -64,28 +64,41 @@ input_no_seoul = pd.DataFrame([{
 }])
 
 # ===========================
-# 4. Predict with All Models
+# 4. Predict and Save to File
 # ===========================
 
-print(f"\n🎬 Movie: {title} ({release_year}), {nation}, {rating}, Seoul Ratio: {seoul_ratio:.2f}")
-print("\n📊 Genre Predictions:")
+results_dir = "../results"
+os.makedirs(results_dir, exist_ok=True)
+results_path = os.path.join(results_dir, f"prediction_result_{title.replace(' ', '_')}.txt")
 
-# Models WITH seoul_ratio
-for label, file in model_files_with_seoul.items():
-    try:
-        model = joblib.load(os.path.join(models_dir, file))
-        pred = model.predict(input_with_seoul)[0]
-        genre = le_genre.inverse_transform([pred])[0]
-        print(f"- {label}: {genre}")
-    except Exception as e:
-        print(f"- {label}: ❌ Failed ({e})")
+with open(results_path, "w", encoding="utf-8") as f:
+    f.write("🎬 Movie Prediction Summary\n")
+    f.write("=" * 30 + "\n")
+    f.write(f"Title        : {title}\n")
+    f.write(f"Release Year : {release_year}\n")
+    f.write(f"Nation       : {nation}\n")
+    f.write(f"Rating       : {rating}\n")
+    f.write(f"Seoul Ratio  : {seoul_ratio:.2f}\n")
+    f.write("\n📊 Genre Predictions:\n")
 
-# Models WITHOUT seoul_ratio
-for label, file in model_files_no_seoul.items():
-    try:
-        model = joblib.load(os.path.join(models_dir, file))
-        pred = model.predict(input_no_seoul)[0]
-        genre = le_genre.inverse_transform([pred])[0]
-        print(f"- {label}: {genre}")
-    except Exception as e:
-        print(f"- {label}: ❌ Failed ({e})")
+    # Models WITH seoul_ratio
+    for label, file in model_files_with_seoul.items():
+        try:
+            model = joblib.load(os.path.join(models_dir, file))
+            pred = model.predict(input_with_seoul)[0]
+            genre = le_genre.inverse_transform([pred])[0]
+            f.write(f"- {label}: {genre}\n")
+        except Exception as e:
+            f.write(f"- {label}: ❌ Failed ({e})\n")
+
+    # Models WITHOUT seoul_ratio
+    for label, file in model_files_no_seoul.items():
+        try:
+            model = joblib.load(os.path.join(models_dir, file))
+            pred = model.predict(input_no_seoul)[0]
+            genre = le_genre.inverse_transform([pred])[0]
+            f.write(f"- {label}: {genre}\n")
+        except Exception as e:
+            f.write(f"- {label}: ❌ Failed ({e})\n")
+
+print(f"\n✅ Prediction results saved to: {results_path}")

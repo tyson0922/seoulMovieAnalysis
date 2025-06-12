@@ -1,0 +1,17 @@
+🎬 Movie Prediction Summary
+==============================
+Title        : hifive
+Release Year : 2025
+Nation       : KR
+Rating       : 15+
+Seoul Ratio  : 0.21
+
+📊 Genre Predictions:
+- KNN: Action
+- Decision Tree: Crime
+- Random Forest: Crime
+- KNN (Reduced Cat): Comedy
+- Decision Tree (Reduced Cat): Action
+- Random Forest (Reduced Cat): Action
+- Random Forest (No Seoul): Mystery
+- Random Forest (Reduced Cat, No Seoul): Comedy
